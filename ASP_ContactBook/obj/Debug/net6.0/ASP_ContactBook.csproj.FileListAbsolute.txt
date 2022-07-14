@@ -76,3 +76,5 @@ E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.A
 E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.Core.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\AutoMapper.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

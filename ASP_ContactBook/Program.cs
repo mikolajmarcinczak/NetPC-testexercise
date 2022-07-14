@@ -30,6 +30,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
