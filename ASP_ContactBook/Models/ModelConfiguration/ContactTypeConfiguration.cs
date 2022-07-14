@@ -8,7 +8,6 @@ namespace ASP_ContactBook.Models.ModelConfiguration
         public void Configure(EntityTypeBuilder<ContactType> builder)
         {
             builder.HasKey(x => x.TypeName);
-            builder.Property(x => x.TypeRole).IsRequired();
             builder.HasMany<UserInfo>(ct => ct.Users)
                    .WithOne(ui => ui.ContactType)
                    .HasForeignKey(ui => ui.TypeName);

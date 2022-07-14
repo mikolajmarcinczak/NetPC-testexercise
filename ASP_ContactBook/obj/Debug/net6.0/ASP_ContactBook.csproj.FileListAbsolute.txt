@@ -68,3 +68,11 @@ E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\obj\Debug\net6.0\refint\ASP_Co
 E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\obj\Debug\net6.0\ASP_ContactBook.pdb
 E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\obj\Debug\net6.0\ASP_ContactBook.genruntimeconfig.cache
 E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\obj\Debug\net6.0\ref\ASP_ContactBook.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\System.Web.Http.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Programming\C#\ASP_ContactBook\ASP_ContactBook\bin\Debug\net6.0\Swashbuckle.Core.dll

@@ -10,7 +10,7 @@ namespace ASP_ContactBook.Models.ModelConfiguration
             builder.HasKey(x => x.UserId);
             builder.Property(x => x.Name).IsRequired();
             builder.Property(x => x.Surname).IsRequired();
-            builder.Property(x => x.ContactType).IsRequired();
+            builder.Property(x => x.TypeName).IsRequired();
             builder.HasOne<ApplicationUser>(ui => ui.User)
                    .WithOne(u => u.UserInfo)
                    .HasForeignKey<UserInfo>(ui => ui.UserId);
