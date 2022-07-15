@@ -6,9 +6,5 @@ namespace ASP_ContactBook.Services
     {
         ContactsDTO GetAllContacts();
         DetailedContactDTO GetDetailedContact(string mail);
-        ResponseDTO AddContact(DetailedContactDTO detailedContactDTO); //Success after login
-        ResponseDTO EditContact(DetailedContactDTO detailedContactDTO); //Success after login
-        ResponseDTO DeleteContact(string mail); //Success after login
-
     }
 }

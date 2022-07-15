@@ -1,5 +1,6 @@
 using ASP_ContactBook.Data;
 using ASP_ContactBook.Models;
+using ASP_ContactBook.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -33,6 +34,11 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IContactsService, ContactsService>();
+builder.Services.AddTransient<IUsersService, UsersService>();
+
+builder.Services.AddLogging();
 
 var app = builder.Build();
 
