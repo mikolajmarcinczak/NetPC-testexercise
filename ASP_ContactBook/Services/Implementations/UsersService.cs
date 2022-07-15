@@ -39,7 +39,6 @@ namespace ASP_ContactBook.Services
             logger.LogInformation($"Executing DeleteUser method");
 
             var user = context.ApplicationUser.Where(u => u.Email == mail).SingleOrDefault();
-
             if (user == null)
             {
                 return new ResponseDTO { Code = 400, Message = $"There is no user with {mail} address.", Status = "Error" };
@@ -83,18 +82,31 @@ namespace ASP_ContactBook.Services
         public UsersDTO GetUsers()
         {
             logger.LogInformation($"Executing GetUsers method");
-
-            var users = context.ApplicationUser.ToList();
             
             UsersDTO usersDTO = new UsersDTO();
             usersDTO.Users = new List<UserDTO>();
 
+            var users = context.ApplicationUser.ToList();
             foreach (var user in users)
             {
                 usersDTO.Users.Add(mapper.Map<UserDTO>(user));
             }
 
             return usersDTO;
+        }
+
+        //Get info for session after logging in
+        public ResponseDTO GetUserId(string mail)
+        {
+            logger.LogInformation($"Executing GetUserId method");
+
+            var user = context.ApplicationUser.Where(x => x.Email == mail).SingleOrDefault();
+            if (user == null)
+            {
+                return new ResponseDTO { Code = 400, Message = "There is no user with {mail} address" };
+            }
+
+            return new ResponseAfterLoginDTO { Code = 200, Message = "User logged in.", Status = "Success", UserID = user.Id, Email = user.Email };
         }
     }
 }

@@ -17,6 +17,7 @@ namespace ASP_ContactBook.Services
             this.mapper = mapper;
         }
 
+        //List of contacts if not logged in
         public ContactsDTO GetAllContacts()
         {
             logger.LogInformation($"Executing GetAllContacts method.");
@@ -34,6 +35,7 @@ namespace ASP_ContactBook.Services
             return contacts;
         }
 
+        //Get user details if not logged in
         public DetailedContactDTO GetDetailedContact(string mail)
         {
             logger.LogInformation($"Executing GetDetailedContact method.");

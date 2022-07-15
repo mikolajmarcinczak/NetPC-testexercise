@@ -6,12 +6,12 @@ namespace ASP_ContactBook.Controllers
 {
     public class ContactsController : Controller
     {
-        private readonly IContactsService contactsService;
+        private readonly IContactsService _contactsService;
         private readonly ILogger<ContactsController> logger;
 
         public ContactsController(IContactsService contactsService, ILogger<ContactsController> logger)
         {
-            this.contactsService = contactsService;
+            this._contactsService = contactsService;
             this.logger = logger;
         }
 
@@ -21,7 +21,7 @@ namespace ASP_ContactBook.Controllers
         public IActionResult GetAllContacts()
         {
             logger.LogInformation("Executing GetAllContacts controller.");
-            return Ok(contactsService.GetAllContacts());
+            return Ok(_contactsService.GetAllContacts());
         }
 
         [AllowAnonymous]
@@ -30,7 +30,7 @@ namespace ASP_ContactBook.Controllers
         public IActionResult GetDetailedContact(string mail)
         {
             logger.LogInformation("Executing GetDetailedContact controller.");
-            return Ok(contactsService.GetDetailedContact(mail));
+            return Ok(_contactsService.GetDetailedContact(mail));
         }
     }
 }

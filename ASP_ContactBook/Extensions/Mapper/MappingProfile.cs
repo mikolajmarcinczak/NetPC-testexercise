@@ -5,7 +5,7 @@ namespace ASP_ContactBook.Extensions.Mapper
 {
     public class MappingProfile : Profile
     {
-        public MappingProfile()
+        public MappingProfile() //How the main model (ApplicationUser) translates to simpler models
         {
             CreateMap<ApplicationUser, UserDTO>()
                     .ForMember(u => u.Id, map => map.MapFrom(m => m.Id))

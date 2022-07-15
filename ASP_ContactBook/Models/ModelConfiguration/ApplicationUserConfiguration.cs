@@ -9,6 +9,7 @@ namespace ASP_ContactBook.Models.ModelConfiguration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.PasswordHash).IsRequired();
+            //One-to-one relationships
             builder.HasOne<UserInfo>(x => x.UserInfo)
                    .WithOne(ui => ui.User)
                    .HasForeignKey<UserInfo>(ui => ui.UserId);

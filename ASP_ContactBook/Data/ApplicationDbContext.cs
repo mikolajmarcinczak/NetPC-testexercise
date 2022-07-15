@@ -16,7 +16,7 @@ namespace ASP_ContactBook.Data
         public DbSet<ContactType> ContactType { get; set; }
         public DbSet<ContactTypeRole> ContactTypeRole { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder builder) //Configuration defined in Models/ModelConfiguration
         {
             builder.ApplyConfiguration(new ApplicationUserConfiguration());
             builder.ApplyConfiguration(new UserInfoConfiguration());

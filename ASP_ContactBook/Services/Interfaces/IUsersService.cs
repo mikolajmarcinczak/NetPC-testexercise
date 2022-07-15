@@ -8,5 +8,6 @@ namespace ASP_ContactBook.Services
         ResponseDTO AddUser(UserDTO userDTO);
         ResponseDTO EditUser(UserDTO userDTO);
         ResponseDTO DeleteUser(string mail);
+        ResponseDTO GetUserId(string mail);
     }
 }

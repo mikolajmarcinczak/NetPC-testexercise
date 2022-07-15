@@ -11,6 +11,7 @@ namespace ASP_ContactBook.Models.ModelConfiguration
             builder.Property(x => x.PhoneNumber).IsRequired();
             builder.Property(x => x.Email).IsRequired();
             builder.HasIndex(x => x.Email).IsUnique();
+            //One-to-one relationship
             builder.HasOne<ApplicationUser>(ud => ud.User)
                    .WithOne(u => u.UserDetail)
                    .HasForeignKey<UserDetail>(ud => ud.UserId);

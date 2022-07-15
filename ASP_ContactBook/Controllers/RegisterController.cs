@@ -31,12 +31,13 @@ namespace ASP_ContactBook.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ResponseAfterLoginDTO> Login([FromBody] UserDTO userDTO)
+        public async Task<ResponseDTO> Login([FromBody] UserDTO userDTO)
         {
             var login = await _signInManager.PasswordSignInAsync(userDTO.Email, userDTO.Password, false, lockoutOnFailure: true);
             if (login.Succeeded)
             {
                 _logger.LogInformation("User logged in.");
+                return _usersService.GetUserId(userDTO.Email); //Return info about logged user
             }
             else
             {
@@ -47,9 +48,32 @@ namespace ASP_ContactBook.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ResponseAfterLoginDTO> Register([FromBody]UserDTO userDTO)
+        public async Task<ResponseDTO> Register([FromBody]UserDTO userDTO)
         {
-            var newUser = new ApplicationUser {  }
+            ContactType ct = new ContactType { TypeName = userDTO.ContactType, TypeRole = new ContactTypeRole { Role = userDTO.ContactTypeRole} };
+            UserInfo ui = new UserInfo { Name = userDTO.Name, Surname = userDTO.Surname, ContactType = ct };
+            UserDetail ud = new UserDetail { Email = userDTO.Email, PhoneNumber = userDTO.PhoneNumber, BirthDate = userDTO.BirthDate };
+
+            var newUser = new ApplicationUser { UserDetail = ud, UserInfo = ui };
+            var register = await _userManager.CreateAsync(newUser, userDTO.Password);
+
+            if (register.Succeeded)
+            {
+                if (!await _roleManager.RoleExistsAsync("User")) //Create 'User' role if not exists
+                {
+                    var role = new IdentityRole("User");
+                    var registerRole = await _roleManager.CreateAsync(role);
+                }
+                await _userManager.AddToRoleAsync(newUser, "User");
+                _logger.LogInformation($"New user account with mail {userDTO.Email} created.");
+                
+                await _signInManager.SignInAsync(newUser, false);
+
+                return _usersService.GetUserId(userDTO.Email); //Return info about logged user
+            }
+
+            _logger.LogInformation("User registration failed.");
+            return new ResponseAfterLoginDTO { Code = 400, Message = "User registration failed.", Status = "Failed" };
         }
     }
 }
