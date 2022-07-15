@@ -7,10 +7,10 @@ namespace ASP_ContactBook.Services
     public class ContactsService : IContactsService
     {
         private readonly ApplicationDbContext context;
-        private readonly ILogger logger;
+        private readonly ILogger<ContactsService> logger;
         private readonly IMapper mapper;
 
-        public ContactsService(ApplicationDbContext context, ILogger logger, IMapper mapper)
+        public ContactsService(ApplicationDbContext context, ILogger<ContactsService> logger, IMapper mapper)
         {
             this.context = context;
             this.logger = logger;

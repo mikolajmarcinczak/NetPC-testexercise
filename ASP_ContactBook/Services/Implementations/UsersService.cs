@@ -7,10 +7,10 @@ namespace ASP_ContactBook.Services
     public class UsersService : IUsersService
     {
         private readonly ApplicationDbContext context;
-        private readonly ILogger logger;
+        private readonly ILogger<UsersService> logger;
         private readonly IMapper mapper;
 
-        public UsersService(ApplicationDbContext context, ILogger logger, IMapper mapper)
+        public UsersService(ApplicationDbContext context, ILogger<UsersService> logger, IMapper mapper)
         {
             this.context = context;
             this.logger = logger;
@@ -95,7 +95,7 @@ namespace ASP_ContactBook.Services
             return usersDTO;
         }
 
-        //Get info for session after logging in
+        //Get user info for session after logging in
         public ResponseDTO GetUserId(string mail)
         {
             logger.LogInformation($"Executing GetUserId method");
